@@ -1,0 +1,16 @@
+<div *ngIf="!listMode">
+    <div  *ngFor="let category of data$ |async">
+        <a
+            [routerLink]="['/rewards', 'list']"
+            [queryParams]="{category: category?.id, page: '1'}"    
+            (click)="onListMode()"
+        >                
+            <app-box [category] = "category"></app-box>
+        </a>
+    </div>
+</div>
+
+
+<div *ngIf="listMode">
+    <router-outlet></router-outlet>
+</div>

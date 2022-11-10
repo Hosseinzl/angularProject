@@ -1,0 +1,36 @@
+*{
+    box-sizing: border-box;
+}
+.box {
+    float: left;
+    width: 321px;
+    height: 328px;
+    background-color: #c1ddaf;
+    margin: 2px 20px;
+    border-radius: 25px;
+}
+.box-title {
+    width: 90%;
+    height: 65px;
+    background-color: #d7e9cc;
+    color: #615d5c;
+    border-radius: 10px;
+    margin: auto auto;
+}
+.box-title p{
+    direction: rtl;
+    float: right;
+    margin: 6%;
+}
+.box-title-count span{
+    float: left;
+    margin: 4%;
+    background-color: snow;
+    padding: 10px 17px;
+    border-radius: 50%;
+}
+.box-image img{
+    width: 164px;
+    height: 164px;
+    margin: 10% 22%;
+}

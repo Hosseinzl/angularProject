@@ -23,7 +23,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "C:/Users/Lenovo/Desktop/AngularProject/node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": []
           },

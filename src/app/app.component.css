@@ -1,0 +1,22 @@
+.nav{
+    display: flex;
+    margin-top: 2rem;
+    /*position: fixed;*/
+
+}
+
+.nav-link {
+    color: #615d5c
+}
+.nav-item {
+    display: inline-block;
+    padding: 2px;
+    padding-bottom: 10px;
+    transition:all ease 0.3s;
+}
+
+.nav-item:hover {
+    transform: translateY(-0.3rem);
+}
+
+
