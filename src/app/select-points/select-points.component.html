@@ -1,0 +1,14 @@
+<div class="main-box">
+
+    <h3>محدوده امتیاز</h3>
+    <br>
+    
+    <input #max type="text" placeholder="بیشترین">
+    <br>
+
+    <input #min type="text" placeholder="کمترین">
+    <br>
+
+    <button (click)="changePoints(max.value, min.value)">اعمال فیلتر</button>
+
+</div>

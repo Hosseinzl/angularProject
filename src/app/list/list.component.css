@@ -1,0 +1,14 @@
+.rewards-box {
+    flex: 1 1;
+    float: left;
+    width: 70%;
+    margin-left: 10%;
+}
+
+
+.filter-box {
+    flex: 0 0;
+    float: right;
+    width: 20%;
+}
+

@@ -1,0 +1,26 @@
+<div class="form-check" *ngFor="let category of data$ |async">
+
+  <ul class="list-group">
+    <li class="list-group-item">
+      <div *ngIf="category.id == firstChecked; else elseCondition">
+        <input
+        class="form-check-input me-1"
+        type="checkbox"
+        [value]="category.id"
+        [checked]="true"
+        (change)="onChange(category.id)"
+        aria-label="...">
+      </div>
+      <ng-template #elseCondition>
+        <input
+        class="form-check-input me-1"
+        type="checkbox"
+        [value]="category.id"
+        (change)="onChange(category.id)"
+        aria-label="...">
+      </ng-template>
+      {{category.name}}
+    </li>
+  </ul>
+</div>
+

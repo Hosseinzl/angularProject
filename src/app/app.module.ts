@@ -13,7 +13,11 @@ import { NetworkComponent } from './network/network.component';
 import { BoxComponent } from './box/box.component';
 import { ListComponent } from './list/list.component';
 import { RewardBoxComponent } from './reward-box/reward-box.component';
-
+import { FilterBoxComponent } from './filter-box/filter-box.component';
+import { SelectCategoriesComponent } from './select-categories/select-categories.component';
+import { SelectPointsComponent } from './select-points/select-points.component';
+import { RewardsListService } from './services/rewards-list.service';
+import { CategoryService } from './services/category.service';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -38,13 +42,17 @@ const routes: Routes = [
     NetworkComponent,
     BoxComponent,
     ListComponent,
-    RewardBoxComponent
+    RewardBoxComponent,
+    FilterBoxComponent,
+    SelectCategoriesComponent,
+    SelectPointsComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [ RewardsListService,
+               CategoryService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

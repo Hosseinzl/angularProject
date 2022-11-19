@@ -1,29 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { map, Observable } from 'rxjs';
+import { filter, map, Observable } from 'rxjs';
 import { Reward, RewardList } from '../interfaces/RewardList';
-import { RewardsListService } from '../services/rewards-list.service';
 
-@Component({
-  selector: 'app-list',
-  templateUrl: './list.component.html',
-  styleUrls: ['./list.component.css']
+@Injectable({
+  providedIn: 'root'
 })
-export class ListComponent implements OnInit {
+export class RewardsListService {
 
-  constructor(private route: ActivatedRoute, public rewards: RewardsListService) { }
-
+  
   public rewardList$ !: Observable<RewardList>;
-  public reward$ !: Observable<Reward[]> | undefined;
-
-
-  public points = {maxPoint: 1000000, minPoint: 0}
-  queryPar !:  string;
+  public reward$ !: Observable<Reward[]>;
+  queryPar: string = "";
   queryPars !: string[];
+  
+  constructor(private route: ActivatedRoute) { }
 
-  ngOnInit(): void {
-
-/*   
+  InitializeRewards() {
     this.rewardList$ = new Observable((observer) => {
       fetch('http://clubapitest.radmanict.com/api/Reward/GetRewardList?PageSize=50&Page=1&IsFavorite=false&Min=0')
         .then((response) => {
@@ -35,8 +28,12 @@ export class ListComponent implements OnInit {
         })
     })
 
+    return this.reward$
 
+  }
 
+  getRewards() {
+    
     this.route.queryParams.subscribe((queryPar) => {
 
       if (typeof queryPar['category'] == "object") {
@@ -44,18 +41,15 @@ export class ListComponent implements OnInit {
       } else {
         this.queryPar =  queryPar['category']
       }
+
+      if (this.queryPar != "") {
+        this.filterQuery()
+      }
+
       this.filterQuery()
     })
+    return this.reward$
 
-
-    */
-
-  
-
-    this.reward$ = this.rewards.InitializeRewards()
-    this.reward$ = this.rewards.getRewards()
-    this.reward$ = this.rewards.fliterPoints(this.points.maxPoint, this.points.minPoint)
-  
   }
 
   public filterQuery() {
@@ -65,16 +59,14 @@ export class ListComponent implements OnInit {
       map((categories) => categories.rewards.filter((reward) => this.queryPar.includes(reward.categotyId)))
     );
   }
-  public setPoints(points: { maxPoint: number; minPoint: number; }) {
-    this.points = points
-    this.ngOnInit()
+
+  fliterPoints(max:number , min: number) {
+
+    this.reward$ = this.reward$.pipe(
+      map((rewards) => rewards.filter((reward) => reward.point <= max && reward.point >= min))
+    );
+
+    return this.reward$
+
   }
-
-
-
 }
-  
-
-
-
-

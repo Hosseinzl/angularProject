@@ -1,3 +1,12 @@
-<div *ngFor="let reward of reward$ | async">
-    <app-reward-box [reward] = "reward" ></app-reward-box>
+<div class="rewards-box">
+    <div *ngFor="let reward of reward$ | async">
+        <app-reward-box [reward] = "reward" ></app-reward-box>
+    </div>
 </div>
+
+<div class="filter-box">
+    <app-select-categories (parentNgOnInit)="ngOnInit()" ></app-select-categories>
+    <app-select-points class="point-box" (points) = "setPoints($event)" ></app-select-points>
+</div>
+
+<router-outlet></router-outlet>
