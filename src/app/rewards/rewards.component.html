@@ -1,7 +1,5 @@
-   
-<div *ngIf="!listMode">
+   <div *ngIf="!listMode">
    <div  *ngFor="let category of data$ |async">
-    
         <a
             [routerLink]="['/rewards', 'list']"
             [queryParams]="{category: category?.id}"    

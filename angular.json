@@ -24,7 +24,7 @@
             ],
             "styles": [
               "src/styles.css",
-              "C:/Users/Lenovo/Desktop/AngularProject/node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": []
           },
